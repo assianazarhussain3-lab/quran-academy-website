@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter Your Name</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="certificate">
+<h2 class="student-name">Student Name</h2>
+<h2 class="student-name" id="showName"></h2>
+
+  <input
+    type="text"
+    id="studentName"
+    placeholder="Your Full Name"
+    class="name-input"
+  >
+
+  <br><br>
+
+  <button onclick="generateCertificate()" class="course-btn">
+    Generate Certificate
+  </button>
+</div>
+
+<script>
+function generateCertificate() {
+  const name = document.getElementById("studentName").value;
+  if (name === "") {
+    alert("Please enter your name");
+    return;
+  }
+  localStorage.setItem("studentName", name);
+  window.location.href = "certificate.html";
+}
+</script>
+<script>
+  document.getElementById("showName").innerText =
+    localStorage.getItem("studentName");
+</script>
+
+</body>
+</html>
